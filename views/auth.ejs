@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>微信公众号授权</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        a {
+            background-color: #43c144;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>微信公众号授权</h1>
+    <a id="url">我要授权</a>
+    <script>
+        var url = "<%= url %>"
+        var a = document.getElementById('url')
+        if (window.navigator.userAgent.toLocaleLowerCase().indexOf('micromessenger') >= 0) {
+            url = "<%= mobileUrl %>"
+        }
+        url = url.replace(/amp;/g, '')
+        a.setAttribute('href', url)
+    </script>
+</body>
+
+</html>
